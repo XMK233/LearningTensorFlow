@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62e8e4f5-bf83-4874-8b81-3bcc3614e751" name="Default Changelist" comment="" />
+    <list default="true" id="62e8e4f5-bf83-4874-8b81-3bcc3614e751" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/1.ipynb" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,47 +16,50 @@
     <session id="-461126086">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.6" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="156" value="2" />
           <entry key="156:8888" value="1" />
-          <entry key="ipynb" value="4" />
-          <entry key="tree" value="1" />
+          <entry key="ipynb" value="6" />
+          <entry key="tree" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IPNB" value="4" />
-          <entry key="UNKNOWN" value="2" />
+          <entry key="IPNB" value="6" />
+          <entry key="UNKNOWN" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="52" />
+          <entry key="py" value="104" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="52" />
+          <entry key="Python" value="104" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/1.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
+        <entry file="http://130.63.97.156:8889/notebooks/PycharmProjects/Test/first/1.ipynb">
+          <provider editor-type-id="ipnb-editor">
             <state>
-              <selected id="8" />
+              <selected id="0" />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="httpFileEditor" />
         </entry>
       </file>
     </leaf>
@@ -64,11 +71,15 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/1.1.ipynb" />
         <option value="$PROJECT_DIR$/1.ipynb" />
+        <option value="$PROJECT_DIR$/test.ipynb" />
       </list>
     </option>
   </component>
@@ -78,17 +89,19 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="28" />
-    <option name="y" value="-18" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="9" />
+    <option name="y" value="-11" />
     <option name="width" value="1890" />
     <option name="height" value="951" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,24 +109,22 @@
               <item name="LearningTensorFlow" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearningTensorFlow" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="LearningTensorFlow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearningTensorFlow" type="462c0819:PsiDirectoryNode" />
-              <item name="MNIST_data" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
+      <recent name="http://130.63.97.156:8889/notebooks/PycharmProjects/Test/first/1.ipynb" />
+      <recent name="http://130.63.97.156" />
+      <recent name="http://130.63.97.156:8889/tree?" />
       <recent name="http://130.63.97.156:8888/tree" />
       <recent name="http://130.63.97.156:8888" />
     </key>
@@ -143,11 +154,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15303643" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15789473" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -156,13 +176,13 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.18881118" />
+      <window_info anchor="bottom" id="Docker" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32867134" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32867134" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -184,19 +204,34 @@
     <entry file="http://130.63.97.156:8888">
       <provider selected="true" editor-type-id="httpFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/1.1.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/1.1.ipynb" />
     <entry file="file://$PROJECT_DIR$/1.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="8" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="http://130.63.97.156:8889/tree?">
+      <provider selected="true" editor-type-id="httpFileEditor" />
+    </entry>
+    <entry file="http://130.63.97.156">
+      <provider selected="true" editor-type-id="httpFileEditor" />
+    </entry>
+    <entry file="http://130.63.97.156:8889/notebooks/PycharmProjects/Test/first/1.ipynb">
+      <provider editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="httpFileEditor" />
     </entry>
   </component>
 </project>
