@@ -85,11 +85,12 @@ def evaluate1(mnist):
     with tf.Session() as sess:
         ckpt = tf.train.get_checkpoint_state(MODEL_SAVE_PATH)
         saver.restore(sess, ckpt.model_checkpoint_path)
+        global_step = ckpt.model_checkpoint_path.split('/')[-1].split('-')[-1]
         accuracy_score = sess.run(accuracy, feed_dict=validate_feed)
-        print("After ?? training step(s), validation accuracy = %g" % ( accuracy_score))
+        print("After %s training step(s), validation accuracy = %g" % (global_step, accuracy_score))
 
 def main(argv=None):
-    mnist = input_data.read_data_sets("../../../datasets/MNIST_data", one_hot=True)
+    mnist = input_data.read_data_sets("datasets/MNIST_data", one_hot=True)#../../../
     evaluate1(mnist)
 
 if __name__ == '__main__':

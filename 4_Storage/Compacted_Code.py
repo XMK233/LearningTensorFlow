@@ -93,6 +93,7 @@ def train(mnist):
                            , os.path.join(MODEL_SAVE_PATH
                                           , MODEL_NAME)
                            , global_step=global_step)
+        saver.export_meta_graph(os.path.join(MODEL_SAVE_PATH, MODEL_NAME) + ".json", as_text=True)
         export.init(named_graph_signatures={
             "inputs": exporter.generic_signature({"input_matrix": x}),
             "outputs": exporter.generic_signature({"output_lable": tf.argmax(y, 1)}),
