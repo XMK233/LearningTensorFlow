@@ -1,0 +1,57 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: %USERNAME%
+  namespace: %NAMESPACE%
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limits
+  namespace: %NAMESPACE%
+spec:
+  limits:
+  - default:
+      cpu: "600m"
+      memory: 2Gi
+    defaultRequest:
+      cpu: "200m"
+      memory: 1Gi
+    type: Container
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota
+  namespace: %NAMESPACE%
+spec:
+  hard:
+    pods: "100"
+    limits.cpu: "23"
+    limits.memory: 90Gi
+    persistentvolumeclaims: "2"
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  namespace: %NAMESPACE%
+  name: kubeflow-demo
+rules:
+- apiGroups: ["", "kubeflow.org", "extensions", "batch"] # "" indicates the core API group
+  resources: ["pods", "pods/log", "pods/portforward", "tfjobs", "deployments", "replicasets", "pvs", "pvcs", "configmaps", "services", "jobs"]
+  verbs: ["get", "list", "update", "watch", "create", "delete"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: kubeflow-binding
+  namespace: %NAMESPACE%
+subjects:
+- kind: ServiceAccount
+  name: %USERNAME%
+  namespace: %NAMESPACE%
+roleRef:
+  kind: Role
+  name: kubeflow-demo
+  apiGroup: rbac.authorization.k8s.io
