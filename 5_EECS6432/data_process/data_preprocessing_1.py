@@ -6,10 +6,11 @@ from sklearn.model_selection import train_test_split
 #------------ Data preprocess -------------------------
 df=pd.read_csv('../raw_data/2018-12-22_00-43-41.csv',header=0,sep=',')
 df["Res"] = df["Res"] / 1000000
-x=df[["Res", "Uw_cpu", "Xw"]]
+df = df[df["Xw"] >= 10]
+x = df[["Uw_cpu", "Xw", "Res"]]
 y=df[["CtnNum"]]
 X_train, X_test, y_train, y_test = train_test_split(x, y)
-print(X_train, y_test)
+print(X_train, y_train)
 
 X_train.to_pickle("X_train.pkl")
 X_test.to_pickle("X_test.pkl")
