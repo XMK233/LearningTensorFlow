@@ -1,0 +1,9 @@
+只有一键部署分布式训练的那一套流程是成功的。
+
+模型的固化找不到方法去弄。
+
+分布式学习大概必须要有MonitoredTrainingSession这类似的东西
+来管控。
+模型的restore大概也必须用MonitoredTrainingSession来弄，但是
+怎么去restore，我看到的链接里面的办法是要先手动恢复计算图
+结构的，那就不容易固化了。

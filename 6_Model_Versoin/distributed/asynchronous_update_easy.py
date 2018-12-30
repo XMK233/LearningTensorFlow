@@ -33,15 +33,16 @@ BATCH_SIZE = 100
 LEARNING_RATE_BASE = 0.01
 LEARNING_RATE_DECAY = 0.99
 REGULARAZTION_RATE = 0.0001
-TRAINING_STEPS = 20000
+TRAINING_STEPS = 10000
 MOVING_AVERAGE_DECAY = 0.99
 
 #
-MODEL_SAVE_PATH = "model_storage"
+MODEL_SAVE_PATH = "async_easy_model"
 if not os.path.exists(MODEL_SAVE_PATH):
     os.mkdir(MODEL_SAVE_PATH)
+MODEL_NAME = "async_model"
 #
-DATA_PATH = "MNIST_data"
+DATA_PATH = "/tmp/data"
 
 #
 #
@@ -132,39 +133,20 @@ def main(argv=None):
         y_ = tf.placeholder(tf.float32, [None, OUTPUT_NODE], name='y-input')
         global_step, loss, train_op = build_model(x, y_, is_chief)
 
-        hooks=[tf.train.StopAtStepHook(last_step=TRAINING_STEPS)]
-        sess_config = tf.ConfigProto(allow_soft_placement=True,
-                                     log_device_placement=False)
-
-        #
-        with tf.train.MonitoredTrainingSession(master=server.target,
-                                               is_chief=is_chief,
-                                               checkpoint_dir=MODEL_SAVE_PATH,
-                                               hooks=hooks,
-                                               save_checkpoint_secs=60,
-                                               save_summaries_secs= 60,
-                                               config=sess_config) as mon_sess:
-            print ("session started.")
-            step = 0
-            start_time = time.time()
-
-            #
-            #
-            #
-            while not mon_sess.should_stop():                
+        saver = tf.train.Saver()
+        with tf.Session() as sess:
+            if is_chief:
+                tf.global_variables_initializer().run()
+            for i in range(TRAINING_STEPS):
                 xs, ys = mnist.train.next_batch(BATCH_SIZE)
-                _, loss_value, global_step_value = mon_sess.run(
-                    [train_op, loss, global_step], feed_dict={x: xs, y_: ys})
+                _, loss_value, step = sess.run([train_op, loss, global_step]
+                                               , feed_dict={x: xs, y_: ys})
 
-                # we can get the global step of training.
-                # global_step_value
-                if step > 0 and step % 100 == 0:
-                    duration = time.time() - start_time
-                    sec_per_batch = duration / global_step_value
-                    format_str = "After %d training steps (%d global steps), " +\
-                                 "loss on training batch is %g. (%.3f sec/batch)"
-                    print (format_str % (step, global_step_value, loss_value, sec_per_batch))
-                step += 1
+                if i % 1000 == 0:
+                    print("After %d training step(s), loss on training batch is %g." % (step, loss_value))
+            saver.save(sess,
+                       os.path.join(MODEL_SAVE_PATH, MODEL_NAME),
+                       global_step= global_step)
 
 if __name__ == "__main__":
     tf.app.run()

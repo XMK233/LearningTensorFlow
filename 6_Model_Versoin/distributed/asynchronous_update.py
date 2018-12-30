@@ -33,7 +33,7 @@ BATCH_SIZE = 100
 LEARNING_RATE_BASE = 0.01
 LEARNING_RATE_DECAY = 0.99
 REGULARAZTION_RATE = 0.0001
-TRAINING_STEPS = 20000
+TRAINING_STEPS = 10000
 MOVING_AVERAGE_DECAY = 0.99
 
 #
@@ -41,7 +41,7 @@ MODEL_SAVE_PATH = "model_storage"
 if not os.path.exists(MODEL_SAVE_PATH):
     os.mkdir(MODEL_SAVE_PATH)
 #
-DATA_PATH = "MNIST_data"
+DATA_PATH = "/tmp/data"
 
 #
 #
@@ -141,7 +141,7 @@ def main(argv=None):
                                                is_chief=is_chief,
                                                checkpoint_dir=MODEL_SAVE_PATH,
                                                hooks=hooks,
-                                               save_checkpoint_secs=60,
+                                               save_checkpoint_steps=1000,
                                                save_summaries_secs= 60,
                                                config=sess_config) as mon_sess:
             print ("session started.")

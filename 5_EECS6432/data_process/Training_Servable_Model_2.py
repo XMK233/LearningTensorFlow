@@ -32,8 +32,6 @@ y_test = pd.read_pickle("y_test.pkl")
 
 model = Sequential()
 model.add(Dense(12, input_dim=3, kernel_initializer='normal', activation='relu'))
-'''model.add(Dense(10, activation='relu'))
-model.add(Dense(12, activation='relu'))'''
 model.add(Dense(10, activation='relu'))
 model.add(Dense(1, activation='linear'))
 model.summary()

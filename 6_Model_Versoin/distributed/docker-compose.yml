@@ -1,0 +1,26 @@
+version: '3'    #docke compose version
+services:
+  tf0:    #App name
+    image: tensorflow/tensorflow:1.12.0-rc1-py3-withSSH    
+#    ports:
+#      - "9000:22"
+    volumes:    
+      - ./distributed0:/notebooks
+    #command: /bin/bash -c "/etc/init.d/ssh start"
+  tf1:
+    image: tensorflow/tensorflow:1.12.0-rc1-py3-withSSH
+#    ports:
+#      - "9001:22"
+    volumes:    
+      - ./distributed1:/notebooks
+    #command: /bin/bash -c "/etc/init.d/ssh start"
+  tf2:
+    image: tensorflow/tensorflow:1.12.0-rc1-py3-withSSH
+#    ports:
+#      - "9002:22"
+    volumes:    
+      - ./distributed2:/notebooks #distributed2
+    #command: /bin/bash -c "/etc/init.d/ssh start"
+
+# https://juejin.im/post/5b6f0039e51d45662d00d935
+# https://github.com/docker/compose/issues/3073
