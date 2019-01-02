@@ -1,5 +1,6 @@
 import tensorflow as tf
 import os
+import datetime
 # https://blog.csdn.net/guyuealian/article/details/82218092
 
 
@@ -34,17 +35,19 @@ def freeze_graph(input_checkpoint, output_graph, output_node_names="InceptionV3/
             output_node_names=output_node_names.split(","))  # 如果有多个输出节点，以逗号隔开
 
         # 下面这两句是为了保存和序列化输出
-        with tf.gfile.GFile(output_graph, "wb") as f:
+        with tf.gfile.GFile(output_graph + ".pb", "wb") as f:
            f.write(output_graph_def.SerializeToString())
 
         # 如果要输出可读模型，就放开这个注释。
-        # tf.train.write_graph(output_graph_def, './', output_graph + "-textual", as_text=True)
+        tf.train.write_graph(output_graph_def, './',
+                             output_graph + "-%s.json" %(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")),
+                             as_text=True)
         print("%d ops in the final graph." % len(output_graph_def.node))
 
 # 输入ckpt模型路径
 input_checkpoint = os.path.join(MODEL_SAVE_PATH, MODEL_NAME)
 # 输出pb模型的路径
-out_pb_path= os.path.join(MODEL_SAVE_PATH, MODEL_NAME) + ".pb"
+out_pb_path= os.path.join(MODEL_SAVE_PATH, MODEL_NAME)
 # 调用freeze_graph将ckpt转为pb
 
 output_node_names = "train"

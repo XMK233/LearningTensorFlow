@@ -31,12 +31,12 @@ from tensorflow.examples.tutorials.mnist import input_data
 import os
 from tensorflow.contrib.session_bundle import exporter
 
-BATCH_SIZE = 100
-LEARNING_RATE_BASE = 0.8
-LEARNING_RATE_DECAY = 0.99
+BATCH_SIZE = 80 #100
+LEARNING_RATE_BASE = 0.9 #0.8
+LEARNING_RATE_DECAY = 0.89 #0.99
 REGULARIZATION_RATE = 0.0001
-TRAINING_STEPS = 100
-MOVING_AVERAGE_DECAY = 0.99
+TRAINING_STEPS = 500 #100
+MOVING_AVERAGE_DECAY = 0.92 #0.99
 MODEL_SAVE_PATH = "MNIST_model/"
 MODEL_NAME = "mnist_model"
 
