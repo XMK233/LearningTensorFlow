@@ -1,0 +1,2561 @@
+{
+    "iterable_item_added": {
+        "root['collection_def'][0]": {
+            "key": "train_op", 
+            "value": {
+                "node_list": {
+                    "value": [
+                        "train", 
+                        "train"
+                    ]
+                }
+            }
+        }, 
+        "root['graph_def']['node'][100]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {}
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "tensor_shape": {
+                                "dim": {}
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/Shape_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][101]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "float_val": "1", 
+                            "tensor_shape": {}
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/grad_ys_0_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][102]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "index_type", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Shape_1", 
+                "gradients/grad_ys_0_1"
+            ], 
+            "name": "gradients/Fill_1", 
+            "op": "Fill"
+        }, 
+        "root['graph_def']['node'][103]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "1", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/loss_grad/Reshape/shape_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][104]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tshape", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Fill_1", 
+                "gradients/loss_grad/Reshape/shape_1"
+            ], 
+            "name": "gradients/loss_grad/Reshape_1", 
+            "op": "Reshape"
+        }, 
+        "root['graph_def']['node'][105]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "100", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/loss_grad/Const_2", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][106]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tmultiples", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/loss_grad/Reshape_1", 
+                "gradients/loss_grad/Const_2"
+            ], 
+            "name": "gradients/loss_grad/Tile_1", 
+            "op": "Tile"
+        }, 
+        "root['graph_def']['node'][107]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "float_val": "100", 
+                            "tensor_shape": {}
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/loss_grad/Const_1_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][108]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/loss_grad/Tile_1", 
+                "gradients/loss_grad/Const_1_1"
+            ], 
+            "name": "gradients/loss_grad/truediv_1", 
+            "op": "RealDiv"
+        }, 
+        "root['graph_def']['node'][109]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "float_val": "2", 
+                            "tensor_shape": {}
+                        }
+                    }
+                }
+            ], 
+            "input": "^gradients/loss_grad/truediv_1", 
+            "name": "gradients/Square_grad/Const_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][110]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "sub_1", 
+                "gradients/Square_grad/Const_1"
+            ], 
+            "name": "gradients/Square_grad/Mul_2", 
+            "op": "Mul"
+        }, 
+        "root['graph_def']['node'][111]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/loss_grad/truediv_1", 
+                "gradients/Square_grad/Mul_2"
+            ], 
+            "name": "gradients/Square_grad/Mul_1_1", 
+            "op": "Mul"
+        }, 
+        "root['graph_def']['node'][112]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": "gradients/Square_grad/Mul_1_1", 
+            "name": "gradients/sub_grad/Neg_1", 
+            "op": "Neg"
+        }, 
+        "root['graph_def']['node'][113]": {
+            "input": [
+                "^gradients/Square_grad/Mul_1_1", 
+                "^gradients/sub_grad/Neg_1"
+            ], 
+            "name": "gradients/sub_grad/tuple/group_deps_1", 
+            "op": "NoOp"
+        }, 
+        "root['graph_def']['node'][114]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@gradients/Square_grad/Mul_1_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Square_grad/Mul_1_1", 
+                "^gradients/sub_grad/tuple/group_deps_1"
+            ], 
+            "name": "gradients/sub_grad/tuple/control_dependency_2", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][115]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@gradients/sub_grad/Neg_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/sub_grad/Neg_1", 
+                "^gradients/sub_grad/tuple/group_deps_1"
+            ], 
+            "name": "gradients/sub_grad/tuple/control_dependency_1_1", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][116]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "100", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/output_grad/Shape_2", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][117]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "1", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/output_grad/Shape_1_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][118]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": [
+                                {
+                                    "dim": {
+                                        "size": "-1"
+                                    }
+                                }, 
+                                {
+                                    "dim": {
+                                        "size": "-1"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/output_grad/Shape_2", 
+                "gradients/output_grad/Shape_1_1"
+            ], 
+            "name": "gradients/output_grad/BroadcastGradientArgs_1", 
+            "op": "BroadcastGradientArgs"
+        }, 
+        "root['graph_def']['node'][119]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tidx", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "keep_dims", 
+                    "value": {
+                        "b": "false"
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/sub_grad/tuple/control_dependency_2", 
+                "gradients/output_grad/BroadcastGradientArgs_1"
+            ], 
+            "name": "gradients/output_grad/Sum_2", 
+            "op": "Sum"
+        }, 
+        "root['graph_def']['node'][120]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tshape", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/output_grad/Sum_2", 
+                "gradients/output_grad/Shape_2"
+            ], 
+            "name": "gradients/output_grad/Reshape_2", 
+            "op": "Reshape"
+        }, 
+        "root['graph_def']['node'][121]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tidx", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "keep_dims", 
+                    "value": {
+                        "b": "false"
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/sub_grad/tuple/control_dependency_2", 
+                "gradients/output_grad/BroadcastGradientArgs_1:1"
+            ], 
+            "name": "gradients/output_grad/Sum_1_1", 
+            "op": "Sum"
+        }, 
+        "root['graph_def']['node'][122]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tshape", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/output_grad/Sum_1_1", 
+                "gradients/output_grad/Shape_1_1"
+            ], 
+            "name": "gradients/output_grad/Reshape_1_1", 
+            "op": "Reshape"
+        }, 
+        "root['graph_def']['node'][123]": {
+            "input": [
+                "^gradients/output_grad/Reshape_1_1", 
+                "^gradients/output_grad/Reshape_2"
+            ], 
+            "name": "gradients/output_grad/tuple/group_deps_1", 
+            "op": "NoOp"
+        }, 
+        "root['graph_def']['node'][124]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@gradients/output_grad/Reshape_2"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/output_grad/Reshape_2", 
+                "^gradients/output_grad/tuple/group_deps_1"
+            ], 
+            "name": "gradients/output_grad/tuple/control_dependency_2", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][125]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@gradients/output_grad/Reshape_1_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/output_grad/Reshape_1_1", 
+                "^gradients/output_grad/tuple/group_deps_1"
+            ], 
+            "name": "gradients/output_grad/tuple/control_dependency_1_1", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][126]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "1", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/Mul_grad/Shape_2", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][127]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "100", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "gradients/Mul_grad/Shape_1_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][128]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": [
+                                {
+                                    "dim": {
+                                        "size": "-1"
+                                    }
+                                }, 
+                                {
+                                    "dim": {
+                                        "size": "-1"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Mul_grad/Shape_2", 
+                "gradients/Mul_grad/Shape_1_1"
+            ], 
+            "name": "gradients/Mul_grad/BroadcastGradientArgs_1", 
+            "op": "BroadcastGradientArgs"
+        }, 
+        "root['graph_def']['node'][129]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/output_grad/tuple/control_dependency_2", 
+                "Mul/y_1"
+            ], 
+            "name": "gradients/Mul_grad/Mul_2", 
+            "op": "Mul"
+        }, 
+        "root['graph_def']['node'][130]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tidx", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "keep_dims", 
+                    "value": {
+                        "b": "false"
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Mul_grad/Mul_2", 
+                "gradients/Mul_grad/BroadcastGradientArgs_1"
+            ], 
+            "name": "gradients/Mul_grad/Sum_2", 
+            "op": "Sum"
+        }, 
+        "root['graph_def']['node'][131]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tshape", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Mul_grad/Sum_2", 
+                "gradients/Mul_grad/Shape_2"
+            ], 
+            "name": "gradients/Mul_grad/Reshape_2", 
+            "op": "Reshape"
+        }, 
+        "root['graph_def']['node'][132]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "W/read_1", 
+                "gradients/output_grad/tuple/control_dependency_2"
+            ], 
+            "name": "gradients/Mul_grad/Mul_1_1", 
+            "op": "Mul"
+        }, 
+        "root['graph_def']['node'][133]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tidx", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "keep_dims", 
+                    "value": {
+                        "b": "false"
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Mul_grad/Mul_1_1", 
+                "gradients/Mul_grad/BroadcastGradientArgs_1:1"
+            ], 
+            "name": "gradients/Mul_grad/Sum_1_1", 
+            "op": "Sum"
+        }, 
+        "root['graph_def']['node'][134]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tshape", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Mul_grad/Sum_1_1", 
+                "gradients/Mul_grad/Shape_1_1"
+            ], 
+            "name": "gradients/Mul_grad/Reshape_1_1", 
+            "op": "Reshape"
+        }, 
+        "root['graph_def']['node'][135]": {
+            "input": [
+                "^gradients/Mul_grad/Reshape_1_1", 
+                "^gradients/Mul_grad/Reshape_2"
+            ], 
+            "name": "gradients/Mul_grad/tuple/group_deps_1", 
+            "op": "NoOp"
+        }, 
+        "root['graph_def']['node'][136]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@gradients/Mul_grad/Reshape_2"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Mul_grad/Reshape_2", 
+                "^gradients/Mul_grad/tuple/group_deps_1"
+            ], 
+            "name": "gradients/Mul_grad/tuple/control_dependency_2", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][137]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@gradients/Mul_grad/Reshape_1_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "gradients/Mul_grad/Reshape_1_1", 
+                "^gradients/Mul_grad/tuple/group_deps_1"
+            ], 
+            "name": "gradients/Mul_grad/tuple/control_dependency_1_1", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][138]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "float_val": "0", 
+                            "tensor_shape": {}
+                        }
+                    }
+                }
+            ], 
+            "name": "train/learning_rate_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][139]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@W_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "use_locking", 
+                    "value": {
+                        "b": "false"
+                    }
+                }
+            ], 
+            "input": [
+                "W_1", 
+                "train/learning_rate_1", 
+                "gradients/Mul_grad/tuple/control_dependency_2"
+            ], 
+            "name": "train/update_W/ApplyGradientDescent_1", 
+            "op": "ApplyGradientDescent"
+        }, 
+        "root['graph_def']['node'][140]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@b_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "use_locking", 
+                    "value": {
+                        "b": "false"
+                    }
+                }
+            ], 
+            "input": [
+                "b_1", 
+                "train/learning_rate_1", 
+                "gradients/output_grad/tuple/control_dependency_1_1"
+            ], 
+            "name": "train/update_b/ApplyGradientDescent_1", 
+            "op": "ApplyGradientDescent"
+        }, 
+        "root['graph_def']['node'][141]": {
+            "input": [
+                "^train/update_W/ApplyGradientDescent_1", 
+                "^train/update_b/ApplyGradientDescent_1"
+            ], 
+            "name": "train_1", 
+            "op": "NoOp"
+        }, 
+        "root['graph_def']['node'][142]": {
+            "input": [
+                "^W/Assign_1", 
+                "^b/Assign_1"
+            ], 
+            "name": "init_1", 
+            "op": "NoOp"
+        }, 
+        "root['graph_def']['node'][143]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_STRING"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_STRING", 
+                            "string_val": "model", 
+                            "tensor_shape": {}
+                        }
+                    }
+                }
+            ], 
+            "name": "save/Const_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][144]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_STRING"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_STRING", 
+                            "string_val": [
+                                "W", 
+                                "b"
+                            ], 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "save/SaveV2/tensor_names_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][145]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_STRING"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_STRING", 
+                            "string_val": [
+                                "", 
+                                ""
+                            ], 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "save/SaveV2/shape_and_slices_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][146]": {
+            "attr": {
+                "key": "dtypes", 
+                "value": {
+                    "list": {
+                        "type": [
+                            "DT_FLOAT", 
+                            "DT_FLOAT"
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "save/Const_1", 
+                "save/SaveV2/tensor_names_1", 
+                "save/SaveV2/shape_and_slices_1", 
+                "W_1", 
+                "b_1"
+            ], 
+            "name": "save/SaveV2_1", 
+            "op": "SaveV2"
+        }, 
+        "root['graph_def']['node'][147]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_STRING"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@save/Const_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "save/Const_1", 
+                "^save/SaveV2_1"
+            ], 
+            "name": "save/control_dependency_1", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][148]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_STRING"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_STRING", 
+                            "string_val": [
+                                "W", 
+                                "b"
+                            ], 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "save/RestoreV2/tensor_names_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][149]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_STRING"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_STRING", 
+                            "string_val": [
+                                "", 
+                                ""
+                            ], 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "2"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "save/RestoreV2/shape_and_slices_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][150]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": [
+                                {
+                                    "unknown_rank": "true"
+                                }, 
+                                {
+                                    "unknown_rank": "true"
+                                }
+                            ]
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtypes", 
+                    "value": {
+                        "list": {
+                            "type": [
+                                "DT_FLOAT", 
+                                "DT_FLOAT"
+                            ]
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "save/Const_1", 
+                "save/RestoreV2/tensor_names_1", 
+                "save/RestoreV2/shape_and_slices_1"
+            ], 
+            "name": "save/RestoreV2_1", 
+            "op": "RestoreV2"
+        }, 
+        "root['graph_def']['node'][151]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@W_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "use_locking", 
+                    "value": {
+                        "b": "true"
+                    }
+                }, 
+                {
+                    "key": "validate_shape", 
+                    "value": {
+                        "b": "true"
+                    }
+                }
+            ], 
+            "input": [
+                "W_1", 
+                "save/RestoreV2_1"
+            ], 
+            "name": "save/Assign_2", 
+            "op": "Assign"
+        }, 
+        "root['graph_def']['node'][152]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@b_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "use_locking", 
+                    "value": {
+                        "b": "true"
+                    }
+                }, 
+                {
+                    "key": "validate_shape", 
+                    "value": {
+                        "b": "true"
+                    }
+                }
+            ], 
+            "input": [
+                "b_1", 
+                "save/RestoreV2_1:1"
+            ], 
+            "name": "save/Assign_1_1", 
+            "op": "Assign"
+        }, 
+        "root['graph_def']['node'][153]": {
+            "input": [
+                "^save/Assign_1_1", 
+                "^save/Assign_2"
+            ], 
+            "name": "save/restore_all_1", 
+            "op": "NoOp"
+        }, 
+        "root['graph_def']['node'][77]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "1", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "random_uniform/shape_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][78]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "float_val": "-1", 
+                            "tensor_shape": {}
+                        }
+                    }
+                }
+            ], 
+            "name": "random_uniform/min_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][79]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "float_val": "1", 
+                            "tensor_shape": {}
+                        }
+                    }
+                }
+            ], 
+            "name": "random_uniform/max_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][80]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "seed", 
+                    "value": {
+                        "i": "0"
+                    }
+                }, 
+                {
+                    "key": "seed2", 
+                    "value": {
+                        "i": "0"
+                    }
+                }
+            ], 
+            "input": "random_uniform/shape_1", 
+            "name": "random_uniform/RandomUniform_1", 
+            "op": "RandomUniform"
+        }, 
+        "root['graph_def']['node'][81]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "random_uniform/max_1", 
+                "random_uniform/min_1"
+            ], 
+            "name": "random_uniform/sub_1", 
+            "op": "Sub"
+        }, 
+        "root['graph_def']['node'][82]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "random_uniform/RandomUniform_1", 
+                "random_uniform/sub_1"
+            ], 
+            "name": "random_uniform/mul_1", 
+            "op": "Mul"
+        }, 
+        "root['graph_def']['node'][83]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "random_uniform/mul_1", 
+                "random_uniform/min_1"
+            ], 
+            "name": "random_uniform_1", 
+            "op": "Add"
+        }, 
+        "root['graph_def']['node'][84]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "container", 
+                    "value": {
+                        "s": ""
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "shape", 
+                    "value": {
+                        "shape": {
+                            "dim": {
+                                "size": "1"
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "shared_name", 
+                    "value": {
+                        "s": ""
+                    }
+                }
+            ], 
+            "name": "W_1", 
+            "op": "VariableV2"
+        }, 
+        "root['graph_def']['node'][85]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@W_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "use_locking", 
+                    "value": {
+                        "b": "true"
+                    }
+                }, 
+                {
+                    "key": "validate_shape", 
+                    "value": {
+                        "b": "true"
+                    }
+                }
+            ], 
+            "input": [
+                "W_1", 
+                "random_uniform_1"
+            ], 
+            "name": "W/Assign_1", 
+            "op": "Assign"
+        }, 
+        "root['graph_def']['node'][86]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@W_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": "W_1", 
+            "name": "W/read_1", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][87]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "float_val": "0", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "zeros_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][88]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "container", 
+                    "value": {
+                        "s": ""
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "shape", 
+                    "value": {
+                        "shape": {
+                            "dim": {
+                                "size": "1"
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "shared_name", 
+                    "value": {
+                        "s": ""
+                    }
+                }
+            ], 
+            "name": "b_1", 
+            "op": "VariableV2"
+        }, 
+        "root['graph_def']['node'][89]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@b_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "use_locking", 
+                    "value": {
+                        "b": "true"
+                    }
+                }, 
+                {
+                    "key": "validate_shape", 
+                    "value": {
+                        "b": "true"
+                    }
+                }
+            ], 
+            "input": [
+                "b_1", 
+                "zeros_1"
+            ], 
+            "name": "b/Assign_1", 
+            "op": "Assign"
+        }, 
+        "root['graph_def']['node'][90]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_class", 
+                    "value": {
+                        "list": {
+                            "s": "loc:@b_1"
+                        }
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": "b_1", 
+            "name": "b/read_1", 
+            "op": "Identity"
+        }, 
+        "root['graph_def']['node'][91]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "unknown_rank": "true"
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "shape", 
+                    "value": {
+                        "shape": {
+                            "unknown_rank": "true"
+                        }
+                    }
+                }
+            ], 
+            "name": "input_1", 
+            "op": "Placeholder"
+        }, 
+        "root['graph_def']['node'][92]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "tensor_content": "________", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "Mul/y_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][93]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "W/read_1", 
+                "Mul/y_1"
+            ], 
+            "name": "Mul_1", 
+            "op": "Mul"
+        }, 
+        "root['graph_def']['node'][94]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "Mul_1", 
+                "b/read_1"
+            ], 
+            "name": "output_1", 
+            "op": "Add"
+        }, 
+        "root['graph_def']['node'][95]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_FLOAT", 
+                            "tensor_content": "________", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "sub/y_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][96]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": [
+                "output_1", 
+                "sub/y_1"
+            ], 
+            "name": "sub_1", 
+            "op": "Sub"
+        }, 
+        "root['graph_def']['node'][97]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "100"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "input": "sub_1", 
+            "name": "Square_1", 
+            "op": "Square"
+        }, 
+        "root['graph_def']['node'][98]": {
+            "attr": [
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                {
+                    "key": "dtype", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "value", 
+                    "value": {
+                        "tensor": {
+                            "dtype": "DT_INT32", 
+                            "int_val": "0", 
+                            "tensor_shape": {
+                                "dim": {
+                                    "size": "1"
+                                }
+                            }
+                        }
+                    }
+                }
+            ], 
+            "name": "Const_1", 
+            "op": "Const"
+        }, 
+        "root['graph_def']['node'][99]": {
+            "attr": [
+                {
+                    "key": "T", 
+                    "value": {
+                        "type": "DT_FLOAT"
+                    }
+                }, 
+                {
+                    "key": "Tidx", 
+                    "value": {
+                        "type": "DT_INT32"
+                    }
+                }, 
+                {
+                    "key": "_output_shapes", 
+                    "value": {
+                        "list": {
+                            "shape": {}
+                        }
+                    }
+                }, 
+                {
+                    "key": "keep_dims", 
+                    "value": {
+                        "b": "false"
+                    }
+                }
+            ], 
+            "input": [
+                "Square_1", 
+                "Const_1"
+            ], 
+            "name": "loss_1", 
+            "op": "Mean"
+        }
+    }, 
+    "iterable_item_removed": {
+        "root['collection_def'][0]": {
+            "key": "train_op", 
+            "value": {
+                "node_list": {
+                    "value": "train"
+                }
+            }
+        }
+    }
+}

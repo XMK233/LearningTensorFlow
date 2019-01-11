@@ -50,5 +50,9 @@ monitoredTrainingSession去读取已经存储的模型，发现可以继续训�
 * 在restore_graph.py中尝试不建立模型，而是直接读取图，然后获取参数，继续训练。
 发现图读取得不对，x-input, y-input提示说找不到。这个方法算是失败了吧。
 
+regression
+---
+regression.ipynb
+* regression model's training and continue training. 
 
 
