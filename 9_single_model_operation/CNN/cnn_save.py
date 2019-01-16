@@ -89,7 +89,6 @@ def train_neural_network1(train_data, train_label, test_data, test_label):
             saver.export_meta_graph(os.path.join(MODEL_SAVE_PATH, MODEL_NAME) + "-%d" % (epoch) + ".json",
                                     as_text=True)
 
-
         correct = tf.equal(tf.argmax(prediction, 1), tf.argmax(y, 1))
 
         accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
