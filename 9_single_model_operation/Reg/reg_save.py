@@ -41,8 +41,9 @@ print("before training: ")
 print("W=", sess.run(W), "b=", sess.run(b), "loss=", sess.run(loss))
 
 saver = tf.train.Saver(max_to_keep=20)
-for step in range(20):
-    sess.run(train, feed_dict={x: x_data})
+for step in range(8):
+    _, c = sess.run([train, loss], feed_dict={x: x_data})
+    print(c)
     saver.save(sess,
                os.path.join(MODEL_SAVE_PATH, MODEL_NAME),
                global_step= step)

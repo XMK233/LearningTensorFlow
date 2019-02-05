@@ -1,13 +1,14 @@
 import tensorflow as tf
 from numpy import *
+import numpy as np
 import re, json, os, scipy
 from deepdiff import DeepDiff
 import matplotlib.pyplot as plt
 
-MODEL = "Reg"
+MODEL = "RNN"
 
 MODEL_SAVE_PATH = MODEL + "_Model"
-MODEL_NAME = "reg_model"
+MODEL_NAME = MODEL.lower() + "_model"
 
 MODEL_SAVE_PATH = MODEL + "/" + MODEL_SAVE_PATH
 
@@ -149,6 +150,9 @@ def distance(v1, v2):
     return linalg.norm(array(v1) - array(v2))
 
 def distances_changing(MODEL_SAVE_PATH, MODEL):
+    # 能够作图。每一个点都是前一个ckpt和后一个ckpt的值
+    # 的差。
+    # 为每一个tensor作一个图。
     graph_dirs = []
     for name in os.listdir(MODEL_SAVE_PATH):
         if ".data" in name:
@@ -168,7 +172,6 @@ def distances_changing(MODEL_SAVE_PATH, MODEL):
 
     variables_diff = {}
     for key in list(variables.keys()):
-        print(key)
         vecs = variables[key]
         for v in range(len(vecs) - 1):
             dis_mat = distance(vecs[v], vecs[v + 1])
@@ -187,6 +190,63 @@ def distances_changing(MODEL_SAVE_PATH, MODEL):
         if not os.path.exists("Var_Diff/%s/" %(MODEL)):
             os.makedirs("Var_Diff/%s/" %(MODEL))
         plt.savefig("Var_Diff/%s/%s.jpg" %(MODEL, key.replace("/", "-")))
+
+def num_of_numbers_in_matrix(l):
+    # l is the shape list of a matrix. for example, for a 2d matrix, the l can be
+    # like [3, 4]
+    if len(l) == 0:
+        return 1
+    else:
+        from functools import reduce
+        return reduce(lambda x, y: x * y, l)
+
+def normalize(l):
+    mx = max(l)
+    mn = min(l)
+    return [(t - mn)/(mx - mn) for t in l]
+
+def distances_changing_slope(MODEL_SAVE_PATH, MODEL):
+    # 暂时没有考虑slope的实现，但是实现了将图画在一起。
+    # 使用的是最基础的normalization方法。
+    graph_dirs = []
+    for name in os.listdir(MODEL_SAVE_PATH):
+        if ".data" in name:
+            graph_dirs.append(name)
+    graph_dirs.sort()
+
+    variables = {}
+    shapes = {}
+    for i in range(len(graph_dirs)):
+        m1 = graph_dirs[i].split(".")[0]
+        vars = variable_to_json(os.path.join(MODEL_SAVE_PATH, m1))
+        keys = list(vars.keys())
+        for key in keys:
+            if key in variables.keys():
+                variables[key].append(vars[key]["value"])
+            else:
+                variables[key] = [vars[key]["value"]]
+            shapes[key] = vars[key]["shape"]
+    variables_diff = {}
+    for key in list(variables.keys()):
+        vecs = variables[key]
+        for v in range(len(vecs) - 1):
+            dis_mat = distance(vecs[v], vecs[v + 1]) #/ num_of_numbers_in_matrix(shapes[key])
+            if key in variables_diff.keys():
+                variables_diff[key].append(dis_mat)
+                pass
+            else:
+                variables_diff[key] = [dis_mat]
+                ####
+        variables_diff[key] = normalize(variables_diff[key])
+
+    plt.figure(figsize=(32,16))
+    for key in variables_diff:
+        values = variables_diff[key]
+        print(key, values)
+        plt.plot(range(len(values)), values)
+    plt.legend(list(variables.keys()))
+    plt.savefig("Var_Diff/%s/%s" % (MODEL, "_combined_.pdf"))
+    plt.show()
 
 def graph_variable_diff(MODEL_SAVE_PATH, MODEL):
     graph_dirs = []
@@ -212,7 +272,5 @@ def graph_variable_diff(MODEL_SAVE_PATH, MODEL):
         with open("Model_Diff/%s/variable_diff %d and %d.json" % (MODEL, i, i + 1), "w") as d:
             json.dump(variable_diff, d, sort_keys=True, indent=2)
 
-#distances_changing(MODEL_SAVE_PATH, MODEL)
-graph_variable_diff(MODEL_SAVE_PATH, MODEL)
-
-
+distances_changing_slope(MODEL_SAVE_PATH, MODEL)
+#graph_variable_diff(MODEL_SAVE_PATH, MODEL)

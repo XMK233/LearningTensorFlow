@@ -1,1 +1,0 @@
-https://github.com/nfmcclure/tensorflow_cookbook/blob/master/04_Support_Vector_Machines/05_Implementing_Nonlinear_SVMs/05_nonlinear_svm.py

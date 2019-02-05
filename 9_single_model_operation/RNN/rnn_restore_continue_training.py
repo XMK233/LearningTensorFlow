@@ -37,7 +37,7 @@ def restore_and_retrain_model1(input_checkpoint,
         }))
 
         saver.save(sess, os.path.join(MODEL_SAVE_PATH, MODEL_NAME + "_retrained"))
-        saver.export_meta_graph(os.path.join(MODEL_SAVE_PATH, MODEL_NAME + "_restrained") + ".json", as_text=True)
+        saver.export_meta_graph(os.path.join(MODEL_SAVE_PATH, MODEL_NAME + "_retrained") + ".json", as_text=True)
 
         # visualize the graph
         writer = tf.summary.FileWriter(os.path.join(SUMMARY_PATH, "retrained"),

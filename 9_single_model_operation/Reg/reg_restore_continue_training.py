@@ -9,6 +9,7 @@ with tf.Session() as sess:
     graph = tf.get_default_graph()
     x = graph.get_tensor_by_name("input:0")
     train_op = graph.get_operation_by_name("training/train")
+    loss = graph.get_tensor_by_name("loss_function/loss:0")
 
     # 随机生成若干个点，围绕在y=0.1x+0.3的直线周围
     num_points = 100
@@ -24,8 +25,9 @@ with tf.Session() as sess:
     plt.scatter(x_data1, y_data1, c='r')
     plt.show()
 
-    for step in range(5):
-        sess.run(train_op, feed_dict={x: x_data1})
+    for step in range(6):
+        _, c = sess.run([train_op, loss], feed_dict={x: x_data1})
+        print(c)
 
     saver.save(sess, model + "_retrained")
     saver.export_meta_graph(model + "_retrained" + ".json", as_text=True)

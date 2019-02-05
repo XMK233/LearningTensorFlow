@@ -7,7 +7,6 @@ import os
 def recurrent_neural_network(x):
     layer = {'weights':tf.Variable(tf.random_normal([rnn_size,n_classes])),
              'biases':tf.Variable(tf.random_normal([n_classes]))}
-
     x = tf.transpose(x, [1,0,2])
     x = tf.reshape(x, [-1, chunk_size])
     x = tf.split(x, n_chunks, 0)
@@ -42,7 +41,7 @@ def train_neural_network(train_data, train_label, test_data, test_label):
 
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        hm_epochs = 3
+        hm_epochs = 20
         for epoch in range(hm_epochs):
             epoch_loss = 0
             for _ in range(int(len(train_data) / batch_size)):
