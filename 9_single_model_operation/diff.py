@@ -154,14 +154,19 @@ def distances_changing(MODEL_SAVE_PATH, MODEL):
     # 的差。
     # 为每一个tensor作一个图。
     graph_dirs = []
+    # for name in os.listdir(MODEL_SAVE_PATH):
+    #     if ".data" in name:
+    #         graph_dirs.append(name)
+    # graph_dirs.sort()
+    name_format = ""
     for name in os.listdir(MODEL_SAVE_PATH):
         if ".data" in name:
-            graph_dirs.append(name)
+            graph_dirs.append(int(name.split(".")[0].split("-")[1]))
+            name_format = name.split(".")[0].split("-")[0]
     graph_dirs.sort()
-
     variables = {}
     for i in range(len(graph_dirs)):
-        m1 = graph_dirs[i].split(".")[0]
+        m1 = "{}-{}".format(name_format, graph_dirs[i])#m1 = graph_dirs[i].split(".")[0]
         vars = variable_to_json(os.path.join(MODEL_SAVE_PATH, m1))
         keys = list(vars.keys())
         for key in keys:
@@ -205,19 +210,24 @@ def normalize(l):
     mn = min(l)
     return [(t - mn)/(mx - mn) for t in l]
 
-def distances_changing_slope(MODEL_SAVE_PATH, MODEL):
+def distances_changing_slope(MODEL_SAVE_PATH, MODEL, variable_list = -1):
+    # variables in variable_list will be displayed. others will not displayed.
+    # if variable_list = -1, it means that all will be displayed.
     # 暂时没有考虑slope的实现，但是实现了将图画在一起。
     # 使用的是最基础的normalization方法。
     graph_dirs = []
+    name_format = ""
     for name in os.listdir(MODEL_SAVE_PATH):
         if ".data" in name:
-            graph_dirs.append(name)
+            graph_dirs.append(int(name.split(".")[0].split("-")[1]))
+            name_format = name.split(".")[0].split("-")[0]
+            #graph_dirs.append(name)
     graph_dirs.sort()
-
+    print(graph_dirs)
     variables = {}
     shapes = {}
     for i in range(len(graph_dirs)):
-        m1 = graph_dirs[i].split(".")[0]
+        m1 = "{}-{}".format(name_format, graph_dirs[i])#graph_dirs[i].split(".")[0]
         vars = variable_to_json(os.path.join(MODEL_SAVE_PATH, m1))
         keys = list(vars.keys())
         for key in keys:
@@ -240,13 +250,25 @@ def distances_changing_slope(MODEL_SAVE_PATH, MODEL):
         variables_diff[key] = normalize(variables_diff[key])
 
     plt.figure(figsize=(32,16))
-    for key in variables_diff:
-        values = variables_diff[key]
-        print(key, values)
-        plt.plot(range(len(values)), values)
-    plt.legend(list(variables.keys()))
-    plt.savefig("Var_Diff/%s/%s" % (MODEL, "_combined_.pdf"))
-    plt.show()
+    if variable_list == -1:
+        for key in variables_diff:
+            values = variables_diff[key]
+            print(key, values)
+            plt.plot(range(len(values)), values)
+        plt.legend(list(variables.keys()))
+        plt.savefig("Var_Diff/%s/%s" % (MODEL, "_combined_.pdf"))
+        plt.show()
+    elif isinstance(variable_list, list):
+        for key in variable_list:
+            #variables_diff
+            values = variables_diff[key]
+            print(key, values)
+            plt.plot(range(len(values)), values)
+        plt.legend(list(variable_list))
+        plt.savefig("Var_Diff/%s/%s" % (MODEL, "_combined_.pdf"))
+        plt.show()
+    else:
+        pass
 
 def graph_variable_diff(MODEL_SAVE_PATH, MODEL):
     graph_dirs = []
@@ -272,5 +294,5 @@ def graph_variable_diff(MODEL_SAVE_PATH, MODEL):
         with open("Model_Diff/%s/variable_diff %d and %d.json" % (MODEL, i, i + 1), "w") as d:
             json.dump(variable_diff, d, sort_keys=True, indent=2)
 
-distances_changing_slope(MODEL_SAVE_PATH, MODEL)
+distances_changing_slope(MODEL_SAVE_PATH, MODEL, ["weight_and_bias/Variable", "weight_and_bias/Variable_1"])#
 #graph_variable_diff(MODEL_SAVE_PATH, MODEL)

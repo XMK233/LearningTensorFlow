@@ -73,7 +73,7 @@ class Dataset:
     data = None
     label = None
 
-    def __init__(self, path="/tmp/train.csv"):
+    def __init__(self, path="/home/seasun/LearningTF//train.csv"):
         df = pd.read_csv(path, header=0)
         cols = df.columns.values.tolist()
         cols.pop(0)
